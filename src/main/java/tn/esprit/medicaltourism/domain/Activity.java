@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="t_activity")
 public class Activity implements Serializable {
-
+//emna
 	
 	private Integer id;
 	private String name;
