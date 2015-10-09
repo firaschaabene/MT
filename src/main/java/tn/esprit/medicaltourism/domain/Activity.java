@@ -1,11 +1,15 @@
 package tn.esprit.medicaltourism.domain;
 
 import java.io.Serializable;
-import java.lang.Integer;
-import java.lang.String;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Entity implementation class for Entity: Activity
@@ -15,12 +19,13 @@ import javax.persistence.*;
 @Table(name="t_activity")
 public class Activity implements Serializable {
 
-	
+
 	private Integer id;
 	private String name;
 	private String description;
 	private Date startDate;
 	private Date endDate;
+	private List <Hotel>hotels;
 	private static final long serialVersionUID = 1L;
 
 	public Activity() {
@@ -31,6 +36,16 @@ public class Activity implements Serializable {
 		return this.id;
 	}
 
+	@Override
+	public String toString() {
+		return "Activity [id=" + id + ", name=" + name + ", description="
+				+ description + "]";
+	}
+	public Activity(Integer id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
 	public void setId(Integer id) {
 		this.id = id;
 	}   
@@ -64,5 +79,22 @@ public class Activity implements Serializable {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	@ManyToMany
+	public List <Hotel> getHotels() {
+		return hotels;
+	}
+	public void setHotels(List <Hotel> hotels) {
+		this.hotels = hotels;
+	}
+	public Activity(Integer id, String name, String description,
+			Date startDate, Date endDate, List<Hotel> hotels) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.hotels = hotels;
+	}
+	
    
 }

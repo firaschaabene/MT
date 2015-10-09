@@ -1,9 +1,11 @@
 package tn.esprit.medicaltourism.domain;
 
 import java.io.Serializable;
+import java.lang.Float;
+import java.lang.Integer;
+import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
 
 
@@ -11,10 +13,6 @@ import javax.persistence.Embeddable;
 public class TicketPK implements Serializable {
 
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Integer idPatient;
 	private Integer idFlight;
 

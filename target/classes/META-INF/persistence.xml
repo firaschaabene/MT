@@ -17,8 +17,11 @@
 	<class>tn.esprit.medicaltourism.domain.Medication</class>
 	<class>tn.esprit.medicaltourism.domain.MedicationList</class>
 	<class>tn.esprit.medicaltourism.domain.Message</class>
+	<class>tn.esprit.medicaltourism.domain.Note</class>
+	<class>tn.esprit.medicaltourism.domain.Offer</class>
 	<class>tn.esprit.medicaltourism.domain.Patient</class>
 	<class>tn.esprit.medicaltourism.domain.Reservation</class>
+	<class>tn.esprit.medicaltourism.domain.ReservationClinicPk</class>
 	<class>tn.esprit.medicaltourism.domain.ReservationPk</class>
 	<class>tn.esprit.medicaltourism.domain.Service</class>
 	<class>tn.esprit.medicaltourism.domain.Ticket</class>
@@ -29,7 +32,6 @@
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 		</properties>
 	</persistence-unit>
 	</persistence>

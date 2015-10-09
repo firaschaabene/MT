@@ -11,11 +11,11 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="t_allergyInformation")
+@Table(name = "t_allergyInformation")
 public class Allergyinformation implements Serializable {
 
 	private Integer id;
-//	private Medicalrecords medicalrecordAI;
+	private MedicalRecords medicalrecordAI;
 	private String allergens;
 	private String dietaryTriggers;
 	private String environmentalTriggers;
@@ -75,14 +75,14 @@ public class Allergyinformation implements Serializable {
 	public void setAdverseReaction(String adverseReaction) {
 		this.adverseReaction = adverseReaction;
 	}
-//
-//	@ManyToOne
-//	@JoinColumn(name = "medRec_AL_FK")
-//	public Medicalrecords getMedicalrecord() {
-//		return medicalrecordAI;
-//	}
-//
-//	public void setMedicalrecord(Medicalrecords medicalrecord) {
-//		this.medicalrecordAI = medicalrecord;
-//	}
+
+	@ManyToOne
+	@JoinColumn(name = "medRec_AL_FK")
+	public MedicalRecords getMedicalrecordAI() {
+		return medicalrecordAI;
+	}
+
+	public void setMedicalrecordAI(MedicalRecords medicalrecord) {
+		this.medicalrecordAI = medicalrecord;
+	}
 }

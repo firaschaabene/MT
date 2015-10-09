@@ -22,8 +22,9 @@ public class healthInstitute implements Serializable {
 	private String name;
 	private String address;
 	private Integer telephoneNumber;
-	private List<ClinicReservation>clincReservation;
+	//private List<ClinicReservation>clincReservation;
 	private static final long serialVersionUID = 1L;
+	private List<ClinicReservation>clinicReservations;
 
 	public healthInstitute() {
 	
@@ -58,11 +59,11 @@ public class healthInstitute implements Serializable {
 		this.telephoneNumber = telephoneNumber;
 	}
 	@OneToMany(mappedBy="clinic")
-	public List<ClinicReservation> getClincReservation() {
-		return clincReservation;
+	public List<ClinicReservation> getClinicReservations() {
+		return clinicReservations;
 	}
-	public void setClincReservation(List<ClinicReservation> clincReservation) {
-		this.clincReservation = clincReservation;
+	public void setClinicReservations(List<ClinicReservation> clinicReservations) {
+		this.clinicReservations = clinicReservations;
 	}
-   
+
 }

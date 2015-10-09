@@ -14,18 +14,18 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="t_clinicreservation")
+@Table(name="t_clinicReservation")
 
 public class ClinicReservation implements Serializable {
 
 	
 	private Date StartDate;
 	
-	
-	private Date EndDate;
-	private ClinicReservationPk clincReservationPK;
+	private Date EndDdate;
 	private User client;
-	private healthInstitute clinic;
+	private healthInstitute  clinic ;
+	
+	private ReservationClinicPk ReservationPk;
 	private static final long serialVersionUID = 1L;
 
 	public ClinicReservation() {
@@ -38,23 +38,30 @@ public class ClinicReservation implements Serializable {
 	public void setStartDate(Date StartDate) {
 		this.StartDate = StartDate;
 	}   
-	public Date getEndDate() {
-		return this.EndDate;
+	public Date getEndDdate() {
+		return this.EndDdate;
 	}
 
-	public void setEndDate(Date EndDate) {
-		this.EndDate = EndDate;
-	}   
-	
-	
+	public void setEndDdate(Date EndDdate) {
+		this.EndDdate = EndDdate;
+	}  
+	@EmbeddedId
+	public ReservationClinicPk getReservationPk() {
+		return this.ReservationPk;
+	}
+
+	public void setReservationPk(ReservationClinicPk ReservationPk) {
+		this.ReservationPk = ReservationPk;
+	}
 	@ManyToOne
-	@JoinColumn(name="id_patient",referencedColumnName="id",insertable=false,updatable=false)
-	public User getPatient() {
+	@JoinColumn(name="id_client",referencedColumnName="id",insertable=false,updatable=false)
+	public User getClient() {
 		return client;
 	}
-	public void setPatient(User patient) {
-		this.client = patient;
+	public void setClient(User client) {
+		this.client = client;
 	}
+	
 	@ManyToOne
 	@JoinColumn(name="id_clinic",referencedColumnName="id",insertable=false,updatable=false)
 	public healthInstitute getClinic() {
@@ -63,25 +70,16 @@ public class ClinicReservation implements Serializable {
 	public void setClinic(healthInstitute clinic) {
 		this.clinic = clinic;
 	}
-	
-	@EmbeddedId
-	public ClinicReservationPk getClincReservationPK() {
-		return clincReservationPK;
-	}
-	
-	
-	public void setClincReservationPK(ClinicReservationPk clincReservationPK) {
-		this.clincReservationPK = clincReservationPK;
-	}
-	public ClinicReservation(Date startDate, Date endDate, User patientss,
+	public ClinicReservation(Date startDate, Date endDdate, User client,
 			healthInstitute clinic) {
 		StartDate = startDate;
-		EndDate = endDate;
-		this.client = patientss;
+		EndDdate = endDdate;
+		this.client = client;
 		this.clinic = clinic;
-		this.clincReservationPK=new ClinicReservationPk(patientss.getId(),clinic.getId());
+		
+		this.ReservationPk= new ReservationClinicPk(client.getId(),clinic.getId());
 	}
-	
+
 	
 	
    

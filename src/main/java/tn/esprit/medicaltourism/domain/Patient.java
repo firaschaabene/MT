@@ -2,11 +2,8 @@ package tn.esprit.medicaltourism.domain;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 
 
@@ -16,6 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="t_patient")
+
 public class Patient  extends User implements Serializable {
     private MedicalRecords medical;
 	private List<Experience>experience;

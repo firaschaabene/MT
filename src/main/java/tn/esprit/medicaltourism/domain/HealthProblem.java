@@ -11,28 +11,45 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name ="t_healthProblem")
+@Table(name = "t_healthProblem")
 public class HealthProblem implements Serializable {
 
 	private Integer id;
-//	private Medicalrecords medicalrecordHP;
+	private MedicalRecords HP;
 	private String diagnostic;
 	private Date startDate;
 	private Date dateOfResolution;
 
-	private enum ProblemState {
-		Active, inactive
-	}
+//	private enum ProblemState {
+//		Active, inactive
+//	}
+//
+//	private enum CharacterState {
+//		chronic, acute
+//	}
+//
+//	private ProblemState state;
+//	private CharacterState character;
+//	
+//
+//	@Enumerated(EnumType.STRING)
+//	public ProblemState getState() {
+//		return state;
+//	}
+//
+//	public void setState(ProblemState state) {
+//		this.state = state;
+//	}
+//
+//	@Enumerated(EnumType.STRING)
+//	public CharacterState getCharacter() {
+//		return character;
+//	}
+//
+//	public void setCharacter(CharacterState character) {
+//		this.character = character;
+//	}
 
-	@Enumerated(EnumType.STRING)
-	private ProblemState state;
-
-	private enum CharacterState {
-		chronic, acute
-	}
-
-	@Enumerated(EnumType.STRING)
-	private CharacterState character;
 	private int priority;
 
 	private static final long serialVersionUID = 1L;
@@ -74,20 +91,14 @@ public class HealthProblem implements Serializable {
 		this.dateOfResolution = dateOfResolution;
 	}
 
-	public ProblemState getState() {
-		return state;
+	@ManyToOne
+	@JoinColumn(name = "medRecc_HP_FK")
+	public MedicalRecords getHP() {
+		return HP;
 	}
 
-	public void setState(ProblemState state) {
-		this.state = state;
-	}
-
-	public CharacterState getCharacter() {
-		return character;
-	}
-
-	public void setCharacter(CharacterState character) {
-		this.character = character;
+	public void setHP(MedicalRecords hP) {
+		HP = hP;
 	}
 
 	public int getPriority() {
@@ -97,14 +108,4 @@ public class HealthProblem implements Serializable {
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
-
-//	@ManyToOne
-//	@JoinColumn(name = "medRec_HP_FK")
-//	public Medicalrecords getMedicalrecordHP() {
-//		return medicalrecordHP;
-//	}
-//
-//	public void setMedicalrecordHP(Medicalrecords medicalrecordHP) {
-//		this.medicalrecordHP = medicalrecordHP;
-//	}
 }
