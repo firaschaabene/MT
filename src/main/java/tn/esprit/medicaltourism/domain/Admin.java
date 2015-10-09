@@ -13,7 +13,7 @@ import javax.persistence.*;
 @DiscriminatorValue(value = "admin")
 public class Admin extends User implements Serializable {
 
-	
+	// Test github
 	private static final long serialVersionUID = 1L;
 
 	public Admin() {
