@@ -28,6 +28,7 @@ public class Allergyinformation implements Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

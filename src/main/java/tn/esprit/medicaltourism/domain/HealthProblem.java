@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class HealthProblem implements Serializable {
 
 	private Integer id;
+	
 	private MedicalRecords HP;
 	private String diagnostic;
 	private Date startDate;
@@ -59,6 +60,7 @@ public class HealthProblem implements Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

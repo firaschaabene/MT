@@ -1,6 +1,7 @@
 package tn.esprit.medicaltourism.domain;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -21,6 +22,7 @@ public class Service implements Serializable {
 		super();
 	}
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}

@@ -26,7 +26,8 @@ public class Message implements Serializable {
 	public Message() {
 		
 	}   
-	@Id    
+	@Id   
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

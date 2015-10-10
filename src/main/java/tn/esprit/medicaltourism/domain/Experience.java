@@ -25,7 +25,8 @@ public class Experience implements Serializable {
 	public Experience() {
 		
 	}   
-	@Id    
+	@Id  
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}
