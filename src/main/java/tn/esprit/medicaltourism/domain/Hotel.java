@@ -20,9 +20,10 @@ import javax.persistence.Table;
 
 public class Hotel implements Serializable {
 	private Integer id;
-	private String location;
+	private String Name;
 	private Integer star;
 	private String address;
+	private String description;
 	private List<Reservation>reservations;
 	private List<Offer>offer;
 	private List<Activity>activities;
@@ -43,12 +44,12 @@ public class Hotel implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}   
-	public String getLocation() {
-		return this.location;
+	public String getName() {
+		return this.Name;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setName(String Name) {
+		this.Name = Name;
 	}   
 	public String getAddress() {
 		return this.address;
@@ -73,9 +74,9 @@ public class Hotel implements Serializable {
 	}
 	
 	
-	public Hotel(Integer id, String location, String address) {
-		this.id = id;
-		this.location = location;
+	public Hotel( String Name, String address) {
+		
+		this.Name = Name;
 		this.address = address;
 	}
 	@OneToMany(mappedBy="hotels")
@@ -85,9 +86,9 @@ public class Hotel implements Serializable {
 	public void setEvals(List<Note> evals) {
 		this.evals = evals;
 	}
-	public Hotel(Integer id, String location, String address, List<Note> evals) {
-		this.id = id;
-		this.location = location;
+	public Hotel( String Name, String address, List<Note> evals) {
+		
+		this.Name = Name;
 		this.address = address;
 		this.evals = evals;
 	}
@@ -97,15 +98,23 @@ public class Hotel implements Serializable {
 	public void setStar(Integer star) {
 		this.star = star;
 	}
-	public Hotel(Integer id, String location, Integer star, String address) {
-		this.id = id;
-		this.location = location;
+	public Hotel( String Name, Integer star, String address) {
+	
+		this.Name = Name;
 		this.star = star;
 		this.address = address;
 	}
+	
+	public Hotel( String Name, Integer star, String address,String Description) {
+		this.description=Description;
+		this.Name = Name;
+		this.star = star;
+		this.address = address;
+	}
+	
 	@Override
 	public String toString() {
-		return "Hotel [id=" + id + ", location=" + location + ", star=" + star
+		return "Hotel [id=" + id + ", Name=" + Name + ", star=" + star
 				+ ", address=" + address + "]";
 	}
 	@OneToMany(mappedBy="hotels")
@@ -114,6 +123,12 @@ public class Hotel implements Serializable {
 	}
 	public void setOffer(List<Offer> offer) {
 		this.offer = offer;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

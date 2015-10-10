@@ -89,10 +89,10 @@ public class Offer implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Offer(Integer id, String name, Float percentagePromotion,
+	public Offer( String name, Float percentagePromotion,
 			Date startDatePromotion, Date endDatePromotion, String description,
 			Hotel hotels) {
-		this.id = id;
+	
 		this.name = name;
 		this.percentagePromotion = percentagePromotion;
 		StartDatePromotion = startDatePromotion;

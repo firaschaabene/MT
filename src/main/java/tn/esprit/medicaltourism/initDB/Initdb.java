@@ -9,6 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import tn.esprit.medicaltourism.domain.Hotel;
 import tn.esprit.medicaltourism.domain.User;
 
 /**
@@ -53,6 +54,13 @@ public class Initdb implements InitdbRemote, InitdbLocal {
 	public void create(User user) {
 		em.persist(user);
 
+	}
+
+
+	@Override
+	public void create(Hotel hotel) {
+		em.persist(hotel);
+		
 	}
 
 }
