@@ -31,7 +31,7 @@ public class Initdb implements InitdbRemote, InitdbLocal {
 
 	public User authentificate(String login, String password) {
 		User found = null;
-		String jpql = "select u from User u where u.login=:x and u.password=:y";
+		String jpql = "select u from User u where u.nickName=:x and u.pwd=:y";
 		TypedQuery<User> query = em.createQuery(jpql, User.class);
 		query.setParameter("x", login);
 		query.setParameter("y", password);
