@@ -1,6 +1,7 @@
 package tn.esprit.medicaltourism.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -19,5 +20,15 @@ public class Admin extends User implements Serializable {
 	public Admin() {
 		super();
 	}
+
+	public Admin(String firstName, String lastName, String nickName,
+			Date birthDate, String email, String adress, Integer cinNumber,
+			String picturePath, String pwd) {
+		super(firstName, lastName, nickName, birthDate, email, adress, cinNumber,
+				picturePath, pwd);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
    
 }
