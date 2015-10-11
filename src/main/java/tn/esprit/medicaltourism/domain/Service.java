@@ -16,6 +16,14 @@ public class Service implements Serializable {
 	private String name ;
 	private String description ;
 	private Float price ;
+	private String image;
+	public Service(String name, String description, Float price, String image) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.image = image;
+	}
 	private static final long serialVersionUID = 1L;
 
 	public Service() {
@@ -53,6 +61,12 @@ public class Service implements Serializable {
 
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 		
    

@@ -22,8 +22,18 @@ public class Hotel implements Serializable {
 	private Integer id;
 	private String Name;
 	private Integer star;
+	public Hotel(String name, Integer star, String address, String description,
+			String image) {
+		super();
+		Name = name;
+		this.star = star;
+		this.address = address;
+		this.description = description;
+		this.image = image;
+	}
 	private String address;
 	private String description;
+	private String image ;
 	private List<Reservation>reservations;
 	private List<Offer>offer;
 	private List<Activity>activities;
@@ -129,6 +139,12 @@ public class Hotel implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	

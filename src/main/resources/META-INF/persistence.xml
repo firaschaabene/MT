@@ -13,6 +13,7 @@
 	<class>tn.esprit.medicaltourism.domain.Flight</class>
 	<class>tn.esprit.medicaltourism.domain.HealthProblem</class>
 	<class>tn.esprit.medicaltourism.domain.Hotel</class>
+	<class>tn.esprit.medicaltourism.domain.Image</class>
 	<class>tn.esprit.medicaltourism.domain.MedicalRecords</class>
 	<class>tn.esprit.medicaltourism.domain.Medication</class>
 	<class>tn.esprit.medicaltourism.domain.MedicationList</class>

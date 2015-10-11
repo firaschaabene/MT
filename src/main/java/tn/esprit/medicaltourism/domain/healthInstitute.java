@@ -24,6 +24,15 @@ public class healthInstitute implements Serializable {
 	private String name;
 	private String address;
 	private Integer telephoneNumber;
+	private String image ;
+	public healthInstitute(String name, String address,
+			Integer telephoneNumber, String image) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.telephoneNumber = telephoneNumber;
+		this.image = image;
+	}
 	//private List<ClinicReservation>clincReservation;
 	private static final long serialVersionUID = 1L;
 	private List<ClinicReservation>clinicReservations;
@@ -67,6 +76,12 @@ public class healthInstitute implements Serializable {
 	}
 	public void setClinicReservations(List<ClinicReservation> clinicReservations) {
 		this.clinicReservations = clinicReservations;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 }

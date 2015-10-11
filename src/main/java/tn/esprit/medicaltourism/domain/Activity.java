@@ -27,6 +27,16 @@ public class Activity implements Serializable {
 	private String description;
 	private String startDate;
 	private String endDate;
+	private String image;
+	public Activity(String name, String description, String startDate,
+			String endDate, String image) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.image = image;
+	}
 	private List <Hotel>hotels;
 	private static final long serialVersionUID = 1L;
 
@@ -97,6 +107,12 @@ public class Activity implements Serializable {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.hotels = hotels;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
    

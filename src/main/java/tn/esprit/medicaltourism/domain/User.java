@@ -28,7 +28,7 @@ public class User implements Serializable {
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-	private List<ClinicReservation>clinicReservations;
+	
 	private Integer id;
 	private String firstName;
 	private String pwd;
@@ -161,6 +161,7 @@ public class User implements Serializable {
 		this.pwd = pwd;
 		this.cinNumber = cinNumber;
 		this.picturePath = picturePath;
+		
 	}
 
 	public String getPwd() {
@@ -203,5 +204,7 @@ public List<ClinicReservation> getClinicReservation() {
 public void setClinicReservation(List<ClinicReservation> clinicReservation) {
 	this.clinicReservation = clinicReservation;
 }
+
+
 
 }
