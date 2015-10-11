@@ -17,8 +17,8 @@ import tn.esprit.medicaltourism.domain.ReservationPk;
 public class Reservation implements Serializable {
 
 	
-	private Date startDate;
-	private Date endDdte;
+	private String startDate;
+	private String endDdte;
 	private ReservationPk ReservationPk;
 	private User patient;
 	private Hotel hotel;
@@ -28,18 +28,18 @@ public class Reservation implements Serializable {
 	public Reservation() {
 		super();
 	}   
-	public Date getStartDate() {
+	public String getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}   
-	public Date getEndDdte() {
+	public String getEndDdte() {
 		return this.endDdte;
 	}
 
-	public void setEndDdte(Date endDdte) {
+	public void setEndDdte(String endDdte) {
 		this.endDdte = endDdte;
 	}   
 	@EmbeddedId
@@ -66,7 +66,7 @@ public class Reservation implements Serializable {
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	public Reservation(Date startDate, Date endDdte, User patient, Hotel hotel) {
+	public Reservation(String startDate, String endDdte, User patient, Hotel hotel) {
 		super();
 		this.startDate = startDate;
 		this.endDdte = endDdte;

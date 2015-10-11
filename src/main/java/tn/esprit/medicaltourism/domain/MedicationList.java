@@ -21,8 +21,8 @@ public class MedicationList implements Serializable {
 
 	
 	private Integer id;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 //	private Medicalrecords medicalrecord;
 //	private List<Medication> medications; 
 	private static final long serialVersionUID = 1L;
@@ -39,20 +39,19 @@ public class MedicationList implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}   
-	@Temporal(TemporalType.DATE)
-	public Date getStartDate() {
+	
+	public String getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	@Temporal(TemporalType.DATE)
-	public Date getEndDate() {
+	public String getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 //	@ManyToOne

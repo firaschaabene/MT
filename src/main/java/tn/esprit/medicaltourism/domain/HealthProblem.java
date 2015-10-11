@@ -18,8 +18,8 @@ public class HealthProblem implements Serializable {
 	
 	private MedicalRecords HP;
 	private String diagnostic;
-	private Date startDate;
-	private Date dateOfResolution;
+	private String startDate;
+	private String dateOfResolution;
 
 //	private enum ProblemState {
 //		Active, inactive
@@ -77,19 +77,19 @@ public class HealthProblem implements Serializable {
 		this.diagnostic = diagnostic;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getDateOfResolution() {
+	public String getDateOfResolution() {
 		return dateOfResolution;
 	}
 
-	public void setDateOfResolution(Date dateOfResolution) {
+	public void setDateOfResolution(String dateOfResolution) {
 		this.dateOfResolution = dateOfResolution;
 	}
 

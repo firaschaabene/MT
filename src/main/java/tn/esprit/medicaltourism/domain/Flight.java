@@ -18,8 +18,8 @@ public class Flight implements Serializable {
 
 	
 	private Integer id;
-	private Date DepartureTime;
-	private Date ArrivalTime;
+	private String DepartureTime;
+	private String ArrivalTime;
 	private static final long serialVersionUID = 1L;
 	private List <Ticket>tickets;
 
@@ -35,20 +35,20 @@ public class Flight implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}   
-	@Temporal(TemporalType.DATE)
-	public Date getDepartureTime() {
+	
+	public String getDepartureTime() {
 		return this.DepartureTime;
 	}
 
-	public void setDepartureTime(Date DepartureTime) {
+	public void setDepartureTime(String DepartureTime) {
 		this.DepartureTime = DepartureTime;
 	}   
-	@Temporal(TemporalType.DATE)
-	public Date getArrivalTime() {
+
+	public String getArrivalTime() {
 		return this.ArrivalTime;
 	}
 
-	public void setArrivalTime(Date ArrivalTime) {
+	public void setArrivalTime(String ArrivalTime) {
 		this.ArrivalTime = ArrivalTime;
 	}
 	@OneToMany(mappedBy="myflight")

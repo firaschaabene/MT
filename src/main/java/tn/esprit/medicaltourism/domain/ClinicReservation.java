@@ -19,9 +19,9 @@ import javax.persistence.Table;
 public class ClinicReservation implements Serializable {
 
 	
-	private Date StartDate;
+	private String StartDate;
 	
-	private Date EndDdate;
+	private String EndDdate;
 	private User client;
 	private healthInstitute  clinic ;
 	
@@ -31,18 +31,18 @@ public class ClinicReservation implements Serializable {
 	public ClinicReservation() {
 		super();
 	}   
-	public Date getStartDate() {
+	public String getStartDate() {
 		return this.StartDate;
 	}
 
-	public void setStartDate(Date StartDate) {
+	public void setStartDate(String StartDate) {
 		this.StartDate = StartDate;
 	}   
-	public Date getEndDdate() {
+	public String getEndDdate() {
 		return this.EndDdate;
 	}
 
-	public void setEndDdate(Date EndDdate) {
+	public void setEndDdate(String EndDdate) {
 		this.EndDdate = EndDdate;
 	}  
 	@EmbeddedId
@@ -70,7 +70,7 @@ public class ClinicReservation implements Serializable {
 	public void setClinic(healthInstitute clinic) {
 		this.clinic = clinic;
 	}
-	public ClinicReservation(Date startDate, Date endDdate, User client,
+	public ClinicReservation(String startDate, String endDdate, User client,
 			healthInstitute clinic) {
 		StartDate = startDate;
 		EndDdate = endDdate;

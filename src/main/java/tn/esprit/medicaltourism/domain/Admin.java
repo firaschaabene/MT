@@ -22,7 +22,7 @@ public class Admin extends User implements Serializable {
 	}
 
 	public Admin(String firstName, String lastName, String nickName,
-			Date birthDate, String email, String adress, Integer cinNumber,
+			String birthDate, String email, String adress, Integer cinNumber,
 			String picturePath, String pwd) {
 		super(firstName, lastName, nickName, birthDate, email, adress, cinNumber,
 				picturePath, pwd);

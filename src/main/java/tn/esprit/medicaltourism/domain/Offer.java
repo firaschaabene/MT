@@ -24,8 +24,8 @@ public class Offer implements Serializable {
 	private Integer id;
 	private String name;
 	private Float percentagePromotion;
-	private Date StartDatePromotion;
-	private Date EndDatePromotion;
+	private String StartDatePromotion;
+	private String EndDatePromotion;
 	private String description;
 	private Hotel hotels;
 	
@@ -50,18 +50,18 @@ public class Offer implements Serializable {
 	public void setPercentagePromotion(Float percentagePromotion) {
 		this.percentagePromotion = percentagePromotion;
 	}   
-	public Date getStartDatePromotion() {
+	public String getStartDatePromotion() {
 		return this.StartDatePromotion;
 	}
 
-	public void setStartDatePromotion(Date StartDatePromotion) {
+	public void setStartDatePromotion(String StartDatePromotion) {
 		this.StartDatePromotion = StartDatePromotion;
 	}   
-	public Date getEndDatePromotion() {
+	public String getEndDatePromotion() {
 		return this.EndDatePromotion;
 	}
 
-	public void setEndDatePromotion(Date EndDatePromotion) {
+	public void setEndDatePromotion(String EndDatePromotion) {
 		this.EndDatePromotion = EndDatePromotion;
 	}   
 	public void setDescription(String description) {
@@ -90,7 +90,7 @@ public class Offer implements Serializable {
 		this.name = name;
 	}
 	public Offer( String name, Float percentagePromotion,
-			Date startDatePromotion, Date endDatePromotion, String description,
+			String startDatePromotion, String endDatePromotion, String description,
 			Hotel hotels) {
 	
 		this.name = name;

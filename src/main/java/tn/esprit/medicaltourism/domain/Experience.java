@@ -18,7 +18,7 @@ public class Experience implements Serializable {
 
 	private Patient patient;
 	private Integer id;
-	private Date date;
+	private String date;
 	private String rating;
 	private static final long serialVersionUID = 1L;
 
@@ -44,11 +44,11 @@ public class Experience implements Serializable {
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	@Temporal(TemporalType.DATE)
-	public Date getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	@ManyToOne

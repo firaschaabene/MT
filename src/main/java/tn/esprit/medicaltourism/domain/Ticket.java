@@ -17,8 +17,8 @@ import tn.esprit.medicaltourism.domain.TicketPK;
 public class Ticket implements Serializable {
 
 	
-	private Date timeDeparture;
-	private Date timeArrival;
+	private String timeDeparture;
+	private String timeArrival;
 	private float price;
 	private String destination;
 	private TicketPK ticketPK;
@@ -30,18 +30,18 @@ public class Ticket implements Serializable {
 	public Ticket() {
 		super();
 	}   
-	public Date getTimeDeparture() {
+	public String getTimeDeparture() {
 		return this.timeDeparture;
 	}
 
-	public void setTimeDeparture(Date timeDeparture) {
+	public void setTimeDeparture(String timeDeparture) {
 		this.timeDeparture = timeDeparture;
 	}   
-	public Date getTimeArrival() {
+	public String getTimeArrival() {
 		return this.timeArrival;
 	}
 
-	public void setTimeArrival(Date timeArrival) {
+	public void setTimeArrival(String timeArrival) {
 		this.timeArrival = timeArrival;
 	}   
 	public float getPrice() {
@@ -85,7 +85,7 @@ public class Ticket implements Serializable {
 	public void setMypatient(User mypatient) {
 		Mypatient = mypatient;
 	}
-	public Ticket(Date timeDeparture, Date timeArrival, float price,
+	public Ticket(String timeDeparture, String timeArrival, float price,
 			String destination, Flight myflight, User mypatient) {
 		super();
 		this.timeDeparture = timeDeparture;

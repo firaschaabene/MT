@@ -25,8 +25,8 @@ public class Activity implements Serializable {
 	private Integer id;
 	private String name;
 	private String description;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 	private List <Hotel>hotels;
 	private static final long serialVersionUID = 1L;
 
@@ -66,20 +66,20 @@ public class Activity implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	} 
-	@Temporal(TemporalType.DATE)
-	public Date getStartDate() {
+	
+	public String getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}  
-	@Temporal(TemporalType.DATE)
-	public Date getEndDate() {
+	
+	public String getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 	@ManyToMany
@@ -90,7 +90,7 @@ public class Activity implements Serializable {
 		this.hotels = hotels;
 	}
 	public Activity(Integer id, String name, String description,
-			Date startDate, Date endDate, List<Hotel> hotels) {
+			String startDate, String endDate, List<Hotel> hotels) {
 		this.id = id;
 		this.name = name;
 		this.description = description;

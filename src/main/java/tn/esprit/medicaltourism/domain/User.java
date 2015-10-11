@@ -34,7 +34,7 @@ public class User implements Serializable {
 	private String pwd;
 	private String lastName;
 	private String nickName;
-	private Date birthDate;
+	private String birthDate;
 	private String email;
 	private String adress;
 	private Integer cinNumber;
@@ -85,11 +85,11 @@ public class User implements Serializable {
 	}
 
 	@Column(name = "birth_date")
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return this.birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -149,7 +149,7 @@ public class User implements Serializable {
 	}
 
 	public User(String firstName, String lastName, String nickName,
-			Date birthDate, String email, String adress, Integer cinNumber,
+			String birthDate, String email, String adress, Integer cinNumber,
 			String picturePath, String pwd) {
 		super();
 		this.firstName = firstName;

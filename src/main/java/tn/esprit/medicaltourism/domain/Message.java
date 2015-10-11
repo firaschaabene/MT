@@ -20,6 +20,7 @@ public class Message implements Serializable {
 	private Integer idExpediteur;
 	private Integer idDestinataire;
 	private String text;
+	private String Date;
 
 	private static final long serialVersionUID = 1L;
 
@@ -74,5 +75,20 @@ public class Message implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	public String getDate() {
+		return Date;
+	}
+	public void setDate(String date) {
+		Date = date;
+	}
+	public Message(Integer idExpediteur, Integer idDestinataire, String text,
+			String date) {
+		super();
+		this.idExpediteur = idExpediteur;
+		this.idDestinataire = idDestinataire;
+		this.text = text;
+		Date = date;
+	}
+	
    
 }
