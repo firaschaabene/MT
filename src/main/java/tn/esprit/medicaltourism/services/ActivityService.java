@@ -112,6 +112,12 @@ public class ActivityService implements  ActivityServiceRemote{
 		
 	}
 
+	@Override
+	public void delete(Activity activity) {
+		em.remove(em.merge(activity));
+		
+	}
+
 		
 	}
     
