@@ -23,7 +23,7 @@ public class ClinicReservation implements Serializable {
 	
 	private String EndDdate;
 	private User client;
-	private healthInstitute  clinic ;
+	private HealthInstitute  clinic ;
 	
 	private ReservationClinicPk ReservationPk;
 	private static final long serialVersionUID = 1L;
@@ -64,14 +64,14 @@ public class ClinicReservation implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="id_clinic",referencedColumnName="id",insertable=false,updatable=false)
-	public healthInstitute getClinic() {
+	public HealthInstitute getClinic() {
 		return clinic;
 	}
-	public void setClinic(healthInstitute clinic) {
+	public void setClinic(HealthInstitute clinic) {
 		this.clinic = clinic;
 	}
 	public ClinicReservation(String startDate, String endDdate, User client,
-			healthInstitute clinic) {
+			HealthInstitute clinic) {
 		StartDate = startDate;
 		EndDdate = endDdate;
 		this.client = client;

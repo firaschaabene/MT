@@ -15,6 +15,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -39,8 +40,8 @@ public class User implements Serializable {
 	private String adress;
 	private Integer cinNumber;
 	private Integer passportNumber;
-	private byte[] pictureByte;
-	private String picturePath;
+
+	private Image picture;
 	private List <Message>messages ;
 	private List <Ticket>tickets;
 	private List<Reservation>reservations;
@@ -129,28 +130,12 @@ public class User implements Serializable {
 		this.passportNumber = passportNumber;
 	}
 
-	@Column(name = "picture_byte")
-	@Lob
-	public byte[] getPictureByte() {
-		return this.pictureByte;
-	}
-
-	public void setPictureByte(byte[] photo) {
-		this.pictureByte = photo;
-	}
-
-	@Column(name = "picture_path")
-	public String getPicturePath() {
-		return this.picturePath;
-	}
-
-	public void setPicturePath(String picturePath) {
-		this.picturePath = picturePath;
-	}
+	
+	
 
 	public User(String firstName, String lastName, String nickName,
 			String birthDate, String email, String adress, Integer cinNumber,
-			String picturePath, String pwd) {
+			Image picture, String pwd) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -160,7 +145,7 @@ public class User implements Serializable {
 		this.adress = adress;
 		this.pwd = pwd;
 		this.cinNumber = cinNumber;
-		this.picturePath = picturePath;
+		this.picture=picture;
 		
 	}
 
@@ -203,6 +188,15 @@ public List<ClinicReservation> getClinicReservation() {
 
 public void setClinicReservation(List<ClinicReservation> clinicReservation) {
 	this.clinicReservation = clinicReservation;
+}
+
+@OneToOne(mappedBy="user")
+public Image getPicture() {
+	return picture;
+}
+
+public void setPicture(Image picture) {
+	this.picture = picture;
 }
 
 

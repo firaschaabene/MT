@@ -28,7 +28,7 @@
 	<class>tn.esprit.medicaltourism.domain.Ticket</class>
 	<class>tn.esprit.medicaltourism.domain.TicketPK</class>
 	<class>tn.esprit.medicaltourism.domain.User</class>
-	<class>tn.esprit.medicaltourism.domain.healthInstitute</class>
+	<class>tn.esprit.medicaltourism.domain.HealthInstitute</class>
 	<properties>
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 			<property name="hibernate.show_sql" value="true"/>

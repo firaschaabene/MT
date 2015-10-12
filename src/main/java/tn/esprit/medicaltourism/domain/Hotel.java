@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +23,8 @@ public class Hotel implements Serializable {
 	private Integer id;
 	private String Name;
 	private Integer star;
+
+	private Image picture;
 	public Hotel(String name, Integer star, String address, String description,
 			String image) {
 		super();
@@ -140,13 +143,15 @@ public class Hotel implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
 	
+	@OneToOne(mappedBy="hotel")
+	public Image getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Image picture) {
+		this.picture = picture;
+	}
 	
 	
 	

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,27 +18,29 @@ import javax.persistence.Table;
 @Entity
 @Table(name="t_healthInstitute")
 
-public class healthInstitute implements Serializable {
+public class HealthInstitute implements Serializable {
 
 	
 	private Integer id;
 	private String name;
 	private String address;
 	private Integer telephoneNumber;
-	private String image ;
-	public healthInstitute(String name, String address,
+	
+
+	private Image picture;
+	public HealthInstitute(String name, String address,
 			Integer telephoneNumber, String image) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.telephoneNumber = telephoneNumber;
-		this.image = image;
+		
 	}
 	//private List<ClinicReservation>clincReservation;
 	private static final long serialVersionUID = 1L;
 	private List<ClinicReservation>clinicReservations;
 
-	public healthInstitute() {
+	public HealthInstitute() {
 	
 	}   
 	@Id    
@@ -77,11 +80,13 @@ public class healthInstitute implements Serializable {
 	public void setClinicReservations(List<ClinicReservation> clinicReservations) {
 		this.clinicReservations = clinicReservations;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
+
+	@OneToOne(mappedBy="healthInstitute")
+	public Image getPicture() {
+		return picture;
 	}
 
+	public void setPicture(Image picture) {
+		this.picture = picture;
+	}
 }

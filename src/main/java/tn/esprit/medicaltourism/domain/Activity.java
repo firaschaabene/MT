@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,7 +28,8 @@ public class Activity implements Serializable {
 	private String description;
 	private String startDate;
 	private String endDate;
-	private String image;
+
+	private Image picture;
 	public Activity(String name, String description, String startDate,
 			String endDate, String image) {
 		super();
@@ -35,7 +37,7 @@ public class Activity implements Serializable {
 		this.description = description;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.image = image;
+		
 	}
 	private List <Hotel>hotels;
 	private static final long serialVersionUID = 1L;
@@ -108,12 +110,16 @@ public class Activity implements Serializable {
 		this.endDate = endDate;
 		this.hotels = hotels;
 	}
-	public String getImage() {
-		return image;
+	
+	@OneToOne(mappedBy="activity")
+	public Image getPicture() {
+		return picture;
 	}
-	public void setImage(String image) {
-		this.image = image;
+
+	public void setPicture(Image picture) {
+		this.picture = picture;
 	}
+	
 	
    
 }
