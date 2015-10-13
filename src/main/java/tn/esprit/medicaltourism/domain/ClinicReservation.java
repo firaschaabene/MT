@@ -25,7 +25,7 @@ public class ClinicReservation implements Serializable {
 	private User client;
 	private HealthInstitute  clinic ;
 	
-	private ReservationClinicPk ReservationPk;
+	private ClinicReservationPk ReservationPk;
 	private static final long serialVersionUID = 1L;
 
 	public ClinicReservation() {
@@ -46,11 +46,11 @@ public class ClinicReservation implements Serializable {
 		this.EndDdate = EndDdate;
 	}  
 	@EmbeddedId
-	public ReservationClinicPk getReservationPk() {
+	public ClinicReservationPk getReservationPk() {
 		return this.ReservationPk;
 	}
 
-	public void setReservationPk(ReservationClinicPk ReservationPk) {
+	public void setReservationPk(ClinicReservationPk ReservationPk) {
 		this.ReservationPk = ReservationPk;
 	}
 	@ManyToOne
@@ -77,7 +77,7 @@ public class ClinicReservation implements Serializable {
 		this.client = client;
 		this.clinic = clinic;
 		
-		this.ReservationPk= new ReservationClinicPk(client.getId(),clinic.getId());
+		this.ReservationPk= new ClinicReservationPk(client.getId(),clinic.getId());
 	}
 
 	

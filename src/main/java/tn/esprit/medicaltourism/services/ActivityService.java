@@ -26,7 +26,6 @@ public class ActivityService implements  ActivityServiceRemote{
         // TODO Auto-generated constructor stub
     }
 
-	@Override
 	public Activity create(Activity activity) {
 		
 		try {
@@ -43,7 +42,6 @@ public class ActivityService implements  ActivityServiceRemote{
 		
 	
 
-	@Override
 	public void update(Activity activity) {
 		
 	
@@ -58,7 +56,6 @@ public class ActivityService implements  ActivityServiceRemote{
 		
 	
 
-	@Override
 	public void delete(Integer id) {
 		
 		try {
@@ -72,20 +69,17 @@ public class ActivityService implements  ActivityServiceRemote{
 		
 	
 
-	@Override
 	public Activity find(Integer id) {
 		return em.find(Activity.class, id);
 		
 	}
 
-	@Override
 	public List<Activity> findAll() {
 		
 		
 		return 	 em.createQuery(" select activities from Activity activities",Activity.class).getResultList();
 	}
 
-	@Override
 	public Activity findByName(String name) {
 		Activity activity =null;
 		
@@ -112,7 +106,6 @@ public class ActivityService implements  ActivityServiceRemote{
 		
 	}
 
-	@Override
 	public void delete(Activity activity) {
 		em.remove(em.merge(activity));
 		

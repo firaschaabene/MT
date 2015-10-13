@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
@@ -190,7 +191,7 @@ public void setClinicReservation(List<ClinicReservation> clinicReservation) {
 	this.clinicReservation = clinicReservation;
 }
 
-@OneToOne(mappedBy="user")
+@OneToOne(mappedBy="user",cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 public Image getPicture() {
 	return picture;
 }

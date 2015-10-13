@@ -27,7 +27,6 @@ public class OfferService implements OfferServiceRemote {
         // TODO Auto-generated constructor stub
     }
 
-	@Override
 	public Offer create(Offer offer) {
 	
 		try {
@@ -41,7 +40,6 @@ public class OfferService implements OfferServiceRemote {
 		return  offer;
 	}
 
-	@Override
 	public void update(Offer offer) {
 
 		try {
@@ -53,7 +51,6 @@ public class OfferService implements OfferServiceRemote {
 	
 	}
 
-	@Override
 	public void delete(Integer id) {
 
 		try {
@@ -65,7 +62,6 @@ public class OfferService implements OfferServiceRemote {
 	
 	}
 
-	@Override
 	public Offer find(Integer id) {
 		return em.find(Offer.class, id);
 	}
@@ -111,7 +107,6 @@ public class OfferService implements OfferServiceRemote {
 //		
 //	
 
-	@Override
 	public List<Offer> findAll() {
 		return 	 em.createQuery(" select offers from Offer offers",Offer.class).getResultList();
 	}
