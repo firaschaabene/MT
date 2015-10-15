@@ -6,8 +6,8 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
+import tn.esprit.medicaltourism.domain.Activity;
 import tn.esprit.medicaltourism.domain.Hotel;
 
 /**
@@ -72,7 +72,24 @@ public class HotelService  implements HotelServiceRemote{
 					.setParameter("star", star)
 					.getResultList();
 		}
+	
+	
+	
+	
+	
+	
+	public List<Activity> findByhotel(Hotel hotel) {
+		
+		return em
+				.createQuery("select activities from Activity activities where e.hotel=:x", Activity.class)
+				.setParameter("x", hotel)
+				.getResultList() ;	
 	}
+
+		
+	}
+    
+	
 
 	
     

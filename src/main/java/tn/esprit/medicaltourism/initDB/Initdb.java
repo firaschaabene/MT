@@ -9,7 +9,11 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import tn.esprit.medicaltourism.domain.Activity;
+import tn.esprit.medicaltourism.domain.Admin;
 import tn.esprit.medicaltourism.domain.Hotel;
+import tn.esprit.medicaltourism.domain.Pack;
+import tn.esprit.medicaltourism.domain.Patient;
 import tn.esprit.medicaltourism.domain.User;
 
 /**
@@ -36,13 +40,11 @@ public class Initdb implements InitdbRemote, InitdbLocal {
 		TypedQuery<User> query = em.createQuery(jpql, User.class);
 		query.setParameter("x", login);
 		query.setParameter("y", password);
-		try {
+		try {System.out.println(found);
 			found = query.getSingleResult();
 			System.out.println(found);
 		} catch (NoResultException e) {
-			Logger.getLogger(getClass().getName()).log(Level.WARNING,
-					"authentification attempt failed !");
-			;
+			System.out.println("authentification attempt failed !");
 			
 		}
 
@@ -62,5 +64,38 @@ public class Initdb implements InitdbRemote, InitdbLocal {
 		em.persist(hotel);
 		
 	}
+
+
+	@Override
+	public Pack update(Pack pack) {
+		
+		return em.merge(pack);
+	}
+
+
+	@Override
+	public void create(Pack pack) {
+		em.persist(pack);
+	}
+
+
+	@Override
+	public void create(Patient patient) {
+		em.persist(patient);
+		
+	}
+
+
+	@Override
+	public void create(Activity activity) {
+	em.persist(activity);
+		
+	}
+	
+	
+	
+	
+	
+	
 
 }

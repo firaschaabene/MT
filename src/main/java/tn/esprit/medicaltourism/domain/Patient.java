@@ -17,7 +17,11 @@ import javax.persistence.*;
 public class Patient  extends User implements Serializable {
     private MedicalRecords medical;
 	private List<Experience>experience;
-
+	public Patient(String lastName, String firstName) {
+		super(lastName, firstName);
+		// TODO Auto-generated constructor stub
+	}
+	
 
 	private static final long serialVersionUID = 1L;
 

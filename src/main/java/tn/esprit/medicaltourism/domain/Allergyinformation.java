@@ -26,6 +26,20 @@ public class Allergyinformation implements Serializable {
 	public Allergyinformation() {
 		super();
 	}
+	
+
+	public Allergyinformation(MedicalRecords medicalrecordAI, String allergens,
+			String dietaryTriggers, String environmentalTriggers,
+			String intolerances, String adverseReaction) {
+		super();
+		this.medicalrecordAI = medicalrecordAI;
+		this.allergens = allergens;
+		this.dietaryTriggers = dietaryTriggers;
+		this.environmentalTriggers = environmentalTriggers;
+		this.intolerances = intolerances;
+		this.adverseReaction = adverseReaction;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

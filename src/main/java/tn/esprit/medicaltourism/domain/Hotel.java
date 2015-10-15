@@ -29,6 +29,7 @@ public class Hotel implements Serializable {
 	private List<Offer> offer;
 	private List<Activity> activities;
 	private Image picture;
+	private List<Services_Hotel>services;
 
 	public Hotel(String name, Integer star, String address, String description,
 			Image picture) {
@@ -83,7 +84,8 @@ public class Hotel implements Serializable {
 		this.reservations = reservations;
 	}
 
-	@ManyToMany(mappedBy = "hotels")
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.PERSIST,
+			CascadeType.REMOVE })
 	public List<Activity> getActivities() {
 		return activities;
 	}
@@ -168,5 +170,18 @@ public class Hotel implements Serializable {
 	public void setPicture(Image picture) {
 		this.picture = picture;
 	}
+	
+	@OneToMany(mappedBy="hotel", cascade = { CascadeType.PERSIST,
+			CascadeType.REMOVE })
+	public List<Services_Hotel> getServices() {
+		return services;
+	}
+	public void setServices(List<Services_Hotel> services) {
+		this.services = services;
+	}
+	
+	
+	
+	
 
 }

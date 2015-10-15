@@ -58,6 +58,18 @@ public class HealthProblem implements Serializable {
 	public HealthProblem() {
 		super();
 	}
+	
+
+	public HealthProblem(MedicalRecords hP, String diagnostic,
+			String startDate, String dateOfResolution, int priority) {
+		super();
+		HP = hP;
+		this.diagnostic = diagnostic;
+		this.startDate = startDate;
+		this.dateOfResolution = dateOfResolution;
+		this.priority = priority;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

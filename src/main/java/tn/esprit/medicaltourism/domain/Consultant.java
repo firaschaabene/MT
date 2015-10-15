@@ -21,5 +21,10 @@ public class Consultant extends User implements Serializable {
 	public Consultant() {
 		super();
 	}
+	
+	public Consultant(String lastName, String firstName) {
+		super(lastName, firstName);
+		// TODO Auto-generated constructor stub
+	}
    
 }

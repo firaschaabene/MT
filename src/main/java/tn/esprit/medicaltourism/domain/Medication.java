@@ -29,6 +29,21 @@ public class Medication implements Serializable {
 	public Medication() {
 		super();
 	}
+	
+
+
+	public Medication(MedicalRecords med, String genericName, String brandName,
+			String dossageLevel, String sourceName, boolean herbalMedication) {
+		super();
+		this.med = med;
+		this.genericName = genericName;
+		this.brandName = brandName;
+		this.dossageLevel = dossageLevel;
+		this.sourceName = sourceName;
+		this.herbalMedication = herbalMedication;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

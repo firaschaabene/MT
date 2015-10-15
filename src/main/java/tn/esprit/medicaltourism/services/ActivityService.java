@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import tn.esprit.medicaltourism.domain.Activity;
+import tn.esprit.medicaltourism.domain.Hotel;
 
 
 /**
@@ -109,6 +110,15 @@ public class ActivityService implements  ActivityServiceRemote{
 	public void delete(Activity activity) {
 		em.remove(em.merge(activity));
 		
+	}
+
+	
+	public List<Activity> findByhotel(Hotel hotel) {
+		
+		return em
+				.createQuery("select e from Activity e where e.hotel=:x", Activity.class)
+				.setParameter("x", hotel)
+				.getResultList() ;	
 	}
 
 		

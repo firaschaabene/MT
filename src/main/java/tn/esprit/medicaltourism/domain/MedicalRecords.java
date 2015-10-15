@@ -24,6 +24,18 @@ public class MedicalRecords implements Serializable {
 	public MedicalRecords() {
 
 	}
+	
+
+	public MedicalRecords(List<Allergyinformation> allergyinformations,
+			List<HealthProblem> healthProblems,
+			List<Medication> medicationLists, Patient patient) {
+		super();
+		this.allergyinformations = allergyinformations;
+		this.healthProblems = healthProblems;
+		this.medicationLists = medicationLists;
+		this.patient = patient;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

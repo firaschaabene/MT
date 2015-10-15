@@ -167,6 +167,12 @@ public class User implements Serializable {
 	}
 	
 
+public User(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 @OneToMany(mappedBy="mypatient")
 public List <Ticket> getTickets() {
 	return tickets;
@@ -198,6 +204,20 @@ public Image getPicture() {
 
 public void setPicture(Image picture) {
 	this.picture = picture;
+}
+
+
+
+/**
+ * @param lastName
+ * @param firstName
+ * @param email
+ */
+public User(String lastName, String firstName, String email) {
+	super();
+	this.lastName = lastName;
+	this.firstName = firstName;
+	this.email = email;
 }
 
 

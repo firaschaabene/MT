@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -28,8 +31,9 @@ public class Activity implements Serializable {
 	private String description;
 	private String startDate;
 	private String endDate;
-
+	private  Hotel hotel;
 	private Image picture;
+	
 	public Activity(String name, String description, String startDate,
 			String endDate, String image) {
 		super();
@@ -39,7 +43,21 @@ public class Activity implements Serializable {
 		this.endDate = endDate;
 		
 	}
-	private List <Hotel>hotels;
+	
+	
+
+	public Activity(String name, String description, String startDate,
+			String endDate, Hotel hotel) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.hotel = hotel;
+	}
+
+
+
 	private static final long serialVersionUID = 1L;
 
 	public Activity() {
@@ -94,24 +112,28 @@ public class Activity implements Serializable {
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	@ManyToMany
-	public List <Hotel> getHotels() {
-		return hotels;
+	
+	@ManyToOne
+	@JoinColumn(name="t_activity")
+	public Hotel getHotel() {
+		return hotel;
 	}
-	public void setHotels(List <Hotel> hotels) {
-		this.hotels = hotels;
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
+	
 	public Activity(Integer id, String name, String description,
-			String startDate, String endDate, List<Hotel> hotels) {
+			String startDate, String endDate, Hotel hotel) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.hotels = hotels;
+		this.hotel = hotel;
 	}
 	
-	@OneToOne(mappedBy="activity")
+	@OneToOne(mappedBy="activity", cascade = { CascadeType.PERSIST,
+			CascadeType.REMOVE })
 	public Image getPicture() {
 		return picture;
 	}

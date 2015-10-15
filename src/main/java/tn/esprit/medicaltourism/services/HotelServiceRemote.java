@@ -16,5 +16,5 @@ void deleteById(Integer ID);
 Hotel findById(Integer id);
 List<Hotel> findByStars(Integer Star);
 List<Hotel>findAll();
-
+List<Activity>findByhotel(Hotel hotel);
 }
