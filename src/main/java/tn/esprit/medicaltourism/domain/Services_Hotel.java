@@ -11,7 +11,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="t_services_hotel")
+@Table(name="t_servicesHotel")
 
 public class Services_Hotel implements Serializable {
 

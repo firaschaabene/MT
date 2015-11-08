@@ -34,10 +34,10 @@ public class DBpopulataor {
 
 	@PostConstruct
 	public void createSome() {
-		User admin = new Admin();
-		admin.setNickName("root");
-		admin.setPwd("root");
-		initdbLocal.create(admin);
+//		User admin = new Admin();
+//		admin.setNickName("root");
+//		admin.setPwd("root");
+		//initdbLocal.create(admin);
 //		MedicalRecords mr1=new MedicalRecords();
 //		MedicalRecords mr2=new MedicalRecords();
 //		MedicalRecords mr3=new MedicalRecords();
@@ -76,58 +76,58 @@ public class DBpopulataor {
 //		list_AI.add(al3);
 //		MedicalRecords mr12=new MedicalRecords(list_AI,list_hi,list_med,patient1);
 
-		Patient patient1 = new Patient();
-		
-		patient1.setNickName("petro");
-		patient1.setPwd("");
-		initdbLocal.create(patient1);
-	Patient patient2 = new Patient();
-	patient2.setNickName("Armando");
-	patient2.setPwd("");
+//		Patient patient1 = new Patient();
+//		
+//		patient1.setNickName("petro");
+//		patient1.setPwd("");
+//		initdbLocal.create(patient1);
+//	Patient patient2 = new Patient();
+//	patient2.setNickName("Armando");
+//	patient2.setPwd("");
 
-	initdbLocal.create(patient2);	
+	//initdbLocal.create(patient2);	
 	
-	Patient patient3 = new Patient();
-	patient3.setNickName("mauro");
-	patient3.setPwd("");
+//	Patient patient3 = new Patient();
+//	patient3.setNickName("mauro");
+//	patient3.setPwd("");
 
-	initdbLocal.create(patient3);
+	//initdbLocal.create(patient3);
 	
+//
+//	Patient patient4 = new Patient();
+//	patient4.setNickName("emily");
+//	patient4.setPwd("");
 
-	Patient patient4 = new Patient();
-	patient4.setNickName("emily");
-	patient4.setPwd("");
+	//initdbLocal.create(patient4);
+	
+	
+//	
+//	Patient patient5= new  Patient();
+//	patient5.setNickName("firas");
+//	patient5.setPwd("");
 
-	initdbLocal.create(patient4);
-	
-	
-	
-	Patient patient5= new  Patient();
-	patient5.setNickName("firas");
-	patient5.setPwd("");
-
-	initdbLocal.create(patient5);
-	
-	Doctor dor2 = new Doctor("Mohamed", "Chaouch","mohamed.chaouch@esprit.tn", "Pediater");
-	Doctor dor3= new Doctor("Mohamed", "Chaouch","mohamed.chaouch@esprit.tn", "Pediater");
-	initdbLocal.create(dor2);
-	initdbLocal.create(dor3);
+	//initdbLocal.create(patient5);
+//	
+//	Doctor dor2 = new Doctor("Mohamed", "Chaouch","mohamed.chaouch@esprit.tn", "Pediater");
+//	Doctor dor3= new Doctor("Mohamed", "Chaouch","mohamed.chaouch@esprit.tn", "Pediater");
+//	initdbLocal.create(dor2);
+//	initdbLocal.create(dor3);
 		
 	
 		
 		Hotel hotel = new Hotel("Sephir",5,"Hammamet");
-		initdbLocal.create(hotel);
+//		initdbLocal.create(hotel);
 		Hotel hotel1 = new Hotel("Lella el baya",5,"Hammamet");
-		initdbLocal.create(hotel1);
+//		CinitdbLocal.create(hotel1);
 		Hotel hotel2 = new Hotel("soltan",5,"Hammamet");
-		initdbLocal.create(hotel2);
+//		initdbLocal.create(hotel2);
 		Hotel hotel3 = new Hotel("Mouradi",5,"Hammamet");
-		initdbLocal.create(hotel3);
+//		initdbLocal.create(hotel3);
 		Hotel hotel4 = new Hotel("Sephir",5,"Hammamet");
-		initdbLocal.create(hotel4);
+//		initdbLocal.create(hotel4);
 		
 		Hotel hotel5 = new Hotel("chichkhan",5,"Hammamet");
-		initdbLocal.create(hotel5);
+//		initdbLocal.create(hotel5);
 		
 		
 		
@@ -135,26 +135,26 @@ public class DBpopulataor {
 		
 	Activity activity1 = new Activity();
 	activity1.setName("running");	
-	initdbLocal.create(activity1);
+//	initdbLocal.create(activity1);
 	
 	
 	Activity activity2 = new Activity();
 	activity2.setName("Spa");
-	initdbLocal.create(activity2);
+//	initdbLocal.create(activity2);
 	
 	
 	
 	
 	Activity activity3 = new Activity();
 	activity3.setName("sona");
-	initdbLocal.create(activity3);
+//	initdbLocal.create(activity3);
 	
 	
 	
 	
 	Activity activity4 = new Activity();
 	activity4.setName("swimming");
-	initdbLocal.create(activity4);
+//initdbLocal.create(activity4);
 	
 	
 	
@@ -169,11 +169,11 @@ public class DBpopulataor {
 		Pack pack3= new Pack();
 		pack3.setName("confort Plus");
 		
-		initdbLocal.create(pack1);
-
-		initdbLocal.create(pack2);
-
-		initdbLocal.create(pack3);
+//		initdbLocal.create(pack1);
+//
+//		initdbLocal.create(pack2);
+//
+//		initdbLocal.create(pack3);
 		
 
 		

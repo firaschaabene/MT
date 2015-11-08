@@ -25,9 +25,13 @@ public class HealthInstitute implements Serializable {
 	private String name;
 	private String address;
 	private Integer telephoneNumber;
-	
-
+	private List<Note> notes;
+	private List<Comment> commentaires;
+	private List<HealthInstitueReservation> healthInstitueReservations;
 	private Image picture;
+	private static final long serialVersionUID = 1L;
+
+	
 	public HealthInstitute(String name, String address,
 			Integer telephoneNumber, String image) {
 		super();
@@ -36,9 +40,8 @@ public class HealthInstitute implements Serializable {
 		this.telephoneNumber = telephoneNumber;
 		
 	}
-	//private List<ClinicReservation>clincReservation;
-	private static final long serialVersionUID = 1L;
-	private List<ClinicReservation>clinicReservations;
+
+	
 
 	public HealthInstitute() {
 	
@@ -73,12 +76,12 @@ public class HealthInstitute implements Serializable {
 	public void setTelephoneNumber(Integer telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
-	@OneToMany(mappedBy="clinic")
-	public List<ClinicReservation> getClinicReservations() {
-		return clinicReservations;
+	@OneToMany(mappedBy="healthInstitute")
+	public List<HealthInstitueReservation> getHealthInstitueReservations() {
+		return healthInstitueReservations;
 	}
-	public void setClinicReservations(List<ClinicReservation> clinicReservations) {
-		this.clinicReservations = clinicReservations;
+	public void setHealthInstitueReservations(List<HealthInstitueReservation> healthInstitueReservations) {
+		this.healthInstitueReservations = healthInstitueReservations;
 	}
 
 	@OneToOne(mappedBy="healthInstitute")
@@ -89,4 +92,20 @@ public class HealthInstitute implements Serializable {
 	public void setPicture(Image picture) {
 		this.picture = picture;
 	}
+	@OneToMany(mappedBy = "hi")
+	public List<Note> getNotes() {
+		return notes;
+	}
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
+	@OneToMany(mappedBy = "hi")
+	public List<Comment> getCommentaires() {
+		return commentaires;
+	}
+	public void setCommentaires(List<Comment> commentaires) {
+		this.commentaires = commentaires;
+	}
+	
+
 }

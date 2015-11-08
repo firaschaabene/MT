@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,8 +30,10 @@ public class Hotel implements Serializable {
 	private List<Offer> offer;
 	private List<Activity> activities;
 	private Image picture;
-	private List<Services_Hotel>services;
-
+	private List<Services_Hotel> services;
+	private List<Note> notes;
+	private List<Comment> commentaires;
+	
 	public Hotel(String name, Integer star, String address, String description,
 			Image picture) {
 		super();
@@ -40,8 +43,6 @@ public class Hotel implements Serializable {
 		this.description = description;
 		this.picture = picture;
 	}
-
-	private List<Note> evals;
 
 	private static final long serialVersionUID = 1L;
 
@@ -100,20 +101,11 @@ public class Hotel implements Serializable {
 		this.address = address;
 	}
 
-	@OneToMany(mappedBy = "hotels")
-	public List<Note> getEvals() {
-		return evals;
-	}
-
-	public void setEvals(List<Note> evals) {
-		this.evals = evals;
-	}
-
-	public Hotel(String Name, String address, List<Note> evals) {
+	public Hotel(String Name, String address, List<Note> notes) {
 
 		this.Name = Name;
 		this.address = address;
-		this.evals = evals;
+		this.notes = notes;
 	}
 
 	public Integer getStar() {
@@ -170,18 +162,32 @@ public class Hotel implements Serializable {
 	public void setPicture(Image picture) {
 		this.picture = picture;
 	}
-	
-	@OneToMany(mappedBy="hotel", cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE })
+
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.PERSIST,
+			CascadeType.REMOVE }, fetch = FetchType.EAGER)
 	public List<Services_Hotel> getServices() {
 		return services;
 	}
+
 	public void setServices(List<Services_Hotel> services) {
 		this.services = services;
 	}
-	
-	
-	
-	
+
+	@OneToMany(mappedBy = "hotel")
+	public List<Note> getNotes() {
+		return notes;
+	}
+
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
+	@OneToMany(mappedBy = "hotel")
+	public List<Comment> getCommentaires() {
+		return commentaires;
+	}
+
+	public void setCommentaires(List<Comment> commentaires) {
+		this.commentaires = commentaires;
+	}
 
 }

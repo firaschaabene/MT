@@ -46,7 +46,7 @@ public class User implements Serializable {
 	private List <Message>messages ;
 	private List <Ticket>tickets;
 	private List<Reservation>reservations;
-	private List<ClinicReservation>clinicReservation;
+	private List<HealthInstitueReservation> healthInstitueReservation;
 
 	@Id
 	@Column(name="id")
@@ -188,13 +188,13 @@ public List<Reservation> getReservations() {
 public void setReservations(List<Reservation> reservations) {
 	this.reservations = reservations;
 }
-@OneToMany(mappedBy="client")
-public List<ClinicReservation> getClinicReservation() {
-	return clinicReservation;
+@OneToMany(mappedBy="user")
+public List<HealthInstitueReservation> getHealthInstitueReservation() {
+	return healthInstitueReservation;
 }
 
-public void setClinicReservation(List<ClinicReservation> clinicReservation) {
-	this.clinicReservation = clinicReservation;
+public void setHealthInstitueReservation(List<HealthInstitueReservation> healthInstitueReservation) {
+	this.healthInstitueReservation = healthInstitueReservation;
 }
 
 @OneToOne(mappedBy="user",cascade={CascadeType.PERSIST,CascadeType.REMOVE})

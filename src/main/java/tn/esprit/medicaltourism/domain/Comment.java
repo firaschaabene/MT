@@ -14,13 +14,13 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="t_note")
+@Table(name="t_comment")
 
-public class Note implements Serializable {
+public class Comment implements Serializable {
 
 	
 	private Integer id;
-	private Integer note;
+	private String contenu;
 	private static final long serialVersionUID = 1L;
 	private HealthInstitute hi;
 	private Hotel hotel;
@@ -32,8 +32,8 @@ public class Note implements Serializable {
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	public Note() {
-		super();
+	public Comment() {
+	
 	}   
 	@Id    
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -44,16 +44,10 @@ public class Note implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}   
-	public Integer getNote() {
-		return this.note;
-	}
 
-	public void setNote(Integer note) {
-		this.note = note;
-	}
-	public Note(Integer id, Integer note, Hotel hotel,HealthInstitute hi) {
+	public Comment(Integer id, String contenu , Hotel hotel,HealthInstitute hi) {
 		this.id = id;
-		this.note = note;
+		this.contenu = contenu;
 		this.hotel = hotel;
 		this.hi=hi;
 	}
@@ -63,6 +57,13 @@ public class Note implements Serializable {
 	}
 	public void setHi(HealthInstitute hi) {
 		this.hi = hi;
+	}
+	
+	public String getContenu() {
+		return contenu;
+	}
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
 	}
 	
 	

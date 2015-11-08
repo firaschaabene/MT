@@ -2,6 +2,7 @@ package tn.esprit.medicaltourism.services;
 
 import java.util.List;
 
+import javax.ejb.Local;
 import javax.ejb.Remote;
 
 import tn.esprit.medicaltourism.domain.Activity;

@@ -5,12 +5,13 @@
 	<class>tn.esprit.medicaltourism.domain.Activity</class>
 	<class>tn.esprit.medicaltourism.domain.Admin</class>
 	<class>tn.esprit.medicaltourism.domain.Allergyinformation</class>
-	<class>tn.esprit.medicaltourism.domain.ClinicReservation</class>
-	<class>tn.esprit.medicaltourism.domain.ClinicReservationPk</class>
+	<class>tn.esprit.medicaltourism.domain.Comment</class>
 	<class>tn.esprit.medicaltourism.domain.Consultant</class>
 	<class>tn.esprit.medicaltourism.domain.Doctor</class>
 	<class>tn.esprit.medicaltourism.domain.Experience</class>
 	<class>tn.esprit.medicaltourism.domain.Flight</class>
+	<class>tn.esprit.medicaltourism.domain.HealthInstitueReservation</class>
+	<class>tn.esprit.medicaltourism.domain.HealthInstitueReservationPk</class>
 	<class>tn.esprit.medicaltourism.domain.HealthInstitute</class>
 	<class>tn.esprit.medicaltourism.domain.HealthProblem</class>
 	<class>tn.esprit.medicaltourism.domain.Hotel</class>
@@ -31,9 +32,10 @@
 	<class>tn.esprit.medicaltourism.domain.TicketPK</class>
 	<class>tn.esprit.medicaltourism.domain.User</class>
 	<properties>
-			<property name="hibernate.hbm2ddl.auto" value="update"/>
-			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.hbm2ddl.auto" value="drop-and-create"/>
+			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
+
 			
 		</properties>
 	</persistence-unit>
