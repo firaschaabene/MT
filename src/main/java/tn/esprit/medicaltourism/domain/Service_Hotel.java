@@ -3,6 +3,7 @@ package tn.esprit.medicaltourism.domain;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -11,15 +12,15 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="t_servicesHotel")
+@Table(name="t_serviceHotel")
 
-public class Services_Hotel implements Serializable {
+public class Service_Hotel implements Serializable {
 
 	
 	private Integer id;
 	private String name;
 	private String description;
-	private Image picture;
+	private List<Image> pictures;
 	private Hotel hotel;
 	@Override
 	public String toString() {
@@ -29,8 +30,8 @@ public class Services_Hotel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public Services_Hotel() {
-		super();
+	public Service_Hotel() {
+	
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -56,14 +57,13 @@ public class Services_Hotel implements Serializable {
 		this.description = description;
 	}
 	
-	@OneToOne(mappedBy="service_hotel", cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE })
-	public Image getPicture() {
-		return this.picture;
+	@OneToMany(mappedBy = "service_hotel", cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+	public List<Image> getPictures() {
+		return pictures;
 	}
 
-	public void setPicture(Image picture) {
-		this.picture = picture;
+	public void setPictures(List<Image> pictures) {
+		this.pictures = pictures;
 	}
 	@ManyToOne
 	@JoinColumn(name="hotel_fk")
@@ -72,6 +72,11 @@ public class Services_Hotel implements Serializable {
 	}
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+	public Service_Hotel(String name, String description) {
+		super();
+		this.name = name;
+		this.description = description;
 	}
 	
 	

@@ -29,7 +29,7 @@ public class Patient  extends User implements Serializable {
 	public Patient() {
 		
 	}
-	@OneToMany(mappedBy= "patient")
+	@OneToMany(mappedBy= "patient", cascade = { CascadeType.ALL})
 	public List<Experience> getExperience() {
 		return experience;
 	}

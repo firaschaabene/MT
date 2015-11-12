@@ -22,7 +22,8 @@ public class Reservation implements Serializable {
 	private ReservationPk ReservationPk;
 	private User patient;
 	private Hotel hotel;
-	
+	private Float totalPrice ;
+	private int numberOfPeople;
 	private static final long serialVersionUID = 1L;
 
 	public Reservation() {
@@ -73,6 +74,28 @@ public class Reservation implements Serializable {
 		this.patient = patient;
 		this.hotel = hotel;
 		this.ReservationPk=new ReservationPk(patient.getId(),hotel.getId());
+	}
+	public Float getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(Float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public Reservation(String startDate, String endDdte, User patient,
+			Hotel hotel, Float totalPrice,int numberOfPeople) {
+		super();
+		this.startDate = startDate;
+		this.endDdte = endDdte;
+		this.patient = patient;
+		this.hotel = hotel;
+		this.totalPrice = totalPrice;
+		this.numberOfPeople=numberOfPeople;
+	}
+	public int getNumberOfPeople() {
+		return numberOfPeople;
+	}
+	public void setNumberOfPeople(int numberOfPeople) {
+		this.numberOfPeople = numberOfPeople;
 	}
    
 	

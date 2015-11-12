@@ -51,7 +51,7 @@ public class Flight implements Serializable {
 	public void setArrivalTime(String ArrivalTime) {
 		this.ArrivalTime = ArrivalTime;
 	}
-	@OneToMany(mappedBy="myflight")
+	@OneToMany(mappedBy="myflight", cascade = { CascadeType.ALL})
 	public List <Ticket> getTickets() {
 		return tickets;
 	}

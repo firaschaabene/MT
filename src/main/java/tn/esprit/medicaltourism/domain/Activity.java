@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -32,7 +33,7 @@ public class Activity implements Serializable {
 	private String startDate;
 	private String endDate;
 	private  Hotel hotel;
-	private Image picture;
+	private List<Image> pictures;
 	
 	public Activity(String name, String description, String startDate,
 			String endDate, String image) {
@@ -131,16 +132,18 @@ public class Activity implements Serializable {
 		this.endDate = endDate;
 		this.hotel = hotel;
 	}
-	
-	@OneToOne(mappedBy="activity", cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE })
-	public Image getPicture() {
-		return picture;
+
+
+	@OneToMany(mappedBy = "activity", cascade = { CascadeType.ALL})
+	public List<Image> getPictures() {
+		return pictures;
 	}
 
-	public void setPicture(Image picture) {
-		this.picture = picture;
+	public void setPictures(List<Image> pictures) {
+		this.pictures = pictures;
 	}
+	
+
 	
 	
    

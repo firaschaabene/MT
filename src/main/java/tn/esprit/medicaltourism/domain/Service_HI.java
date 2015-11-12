@@ -1,6 +1,7 @@
 package tn.esprit.medicaltourism.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -9,24 +10,28 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="t_service")
-public class Service implements Serializable {
+@Table(name="t_serviceHI")
+public class Service_HI implements Serializable {
 
 	private Integer id ;
 	private String name ;
 	private String description ;
 	private Float price ;
-	private String image;
-	public Service(String name, String description, Float price, String image) {
+	private List<Image> pictures;
+	
+	
+	
+	
+	public Service_HI(String name, String description, Float price) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		this.image = image;
+	
 	}
 	private static final long serialVersionUID = 1L;
 
-	public Service() {
+	public Service_HI() {
 		super();
 	}
 	@Id
@@ -62,12 +67,13 @@ public class Service implements Serializable {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-	public String getImage() {
-		return image;
+	@OneToMany(mappedBy = "service_hi", cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+	public List<Image> getPictures() {
+		return pictures;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setPictures(List<Image> pictures) {
+		this.pictures = pictures;
 	}
-		
+
    
 }

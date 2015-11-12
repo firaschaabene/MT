@@ -9,7 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -29,19 +31,20 @@ public class Hotel implements Serializable {
 	private List<Reservation> reservations;
 	private List<Offer> offer;
 	private List<Activity> activities;
-	private Image picture;
-	private List<Services_Hotel> services;
+	private List<Image> pictures;
+	private Provider provider;
+	private List<Room> rooms;
+	private List<Service_Hotel> services;
 	private List<Note> notes;
 	private List<Comment> commentaires;
 	
-	public Hotel(String name, Integer star, String address, String description,
-			Image picture) {
-		super();
-		Name = name;
+	public Hotel(String name, Integer star, String address, String description) {
+		
+		this.Name = name;
 		this.star = star;
 		this.address = address;
 		this.description = description;
-		this.picture = picture;
+	
 	}
 
 	private static final long serialVersionUID = 1L;
@@ -76,7 +79,7 @@ public class Hotel implements Serializable {
 		this.address = address;
 	}
 
-	@OneToMany(mappedBy = "hotel")
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL})
 	public List<Reservation> getReservations() {
 		return reservations;
 	}
@@ -85,8 +88,7 @@ public class Hotel implements Serializable {
 		this.reservations = reservations;
 	}
 
-	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE })
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL})
 	public List<Activity> getActivities() {
 		return activities;
 	}
@@ -123,20 +125,13 @@ public class Hotel implements Serializable {
 		this.address = address;
 	}
 
-	public Hotel(String Name, Integer star, String address, String Description) {
-		this.description = Description;
-		this.Name = Name;
-		this.star = star;
-		this.address = address;
-	}
-
 	@Override
 	public String toString() {
 		return "Hotel [id=" + id + ", Name=" + Name + ", star=" + star
 				+ ", address=" + address + "]";
 	}
 
-	@OneToMany(mappedBy = "hotels")
+	@OneToMany(mappedBy = "hotels", cascade = { CascadeType.ALL})
 	public List<Offer> getOffer() {
 		return offer;
 	}
@@ -153,27 +148,19 @@ public class Hotel implements Serializable {
 		this.description = description;
 	}
 
-	@OneToOne(mappedBy = "hotel", cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE })
-	public Image getPicture() {
-		return picture;
-	}
 
-	public void setPicture(Image picture) {
-		this.picture = picture;
-	}
+	
 
-	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE }, fetch = FetchType.EAGER)
-	public List<Services_Hotel> getServices() {
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+	public List<Service_Hotel> getServices() {
 		return services;
 	}
 
-	public void setServices(List<Services_Hotel> services) {
+	public void setServices(List<Service_Hotel> services) {
 		this.services = services;
 	}
 
-	@OneToMany(mappedBy = "hotel")
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL})
 	public List<Note> getNotes() {
 		return notes;
 	}
@@ -181,13 +168,38 @@ public class Hotel implements Serializable {
 	public void setNotes(List<Note> notes) {
 		this.notes = notes;
 	}
-	@OneToMany(mappedBy = "hotel")
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL})
 	public List<Comment> getCommentaires() {
 		return commentaires;
 	}
 
 	public void setCommentaires(List<Comment> commentaires) {
 		this.commentaires = commentaires;
+	}
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+	public List<Image> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<Image> pictures) {
+		this.pictures = pictures;
+	}
+@ManyToOne
+@JoinColumn(name="provider_Fk")
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL})
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
 	}
 
 }

@@ -47,7 +47,7 @@ public class MedicalRecords implements Serializable {
 		this.id = id;
 	}
 
-	@OneToOne(mappedBy = "medical")
+	@OneToOne(mappedBy = "medical", cascade = { CascadeType.ALL})
 	public Patient getPatient() {
 		return patient;
 	}
@@ -66,7 +66,7 @@ public class MedicalRecords implements Serializable {
 		this.allergyinformations = allergyinformations;
 	}
 
-	@OneToMany(mappedBy = "med")
+	@OneToMany(mappedBy = "med", cascade = { CascadeType.ALL})
 	public List<Medication> getMedicationLists() {
 		return medicationLists;
 	}
@@ -75,7 +75,7 @@ public class MedicalRecords implements Serializable {
 		this.medicationLists = medicationLists;
 	}
 
-	@OneToMany(mappedBy = "HP")
+	@OneToMany(mappedBy = "HP", cascade = { CascadeType.ALL})
 	public List<HealthProblem> getHealthProblems() {
 		return healthProblems;
 	}

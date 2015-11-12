@@ -157,7 +157,7 @@ public class User implements Serializable {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	@OneToMany(mappedBy= "user")
+	@OneToMany(mappedBy= "user", cascade = { CascadeType.ALL})
 	public List <Message> getMessages() {
 		return messages;
 	}
@@ -173,14 +173,14 @@ public User(String firstName, String lastName) {
 		this.lastName = lastName;
 	}
 
-@OneToMany(mappedBy="mypatient")
+@OneToMany(mappedBy="mypatient", cascade = { CascadeType.ALL})
 public List <Ticket> getTickets() {
 	return tickets;
 }
 public void setTickets(List <Ticket> tickets) {
 	this.tickets = tickets;
 }
-@OneToMany(mappedBy="patient")
+@OneToMany(mappedBy="patient", cascade = { CascadeType.ALL})
 public List<Reservation> getReservations() {
 	return reservations;
 }
@@ -188,7 +188,7 @@ public List<Reservation> getReservations() {
 public void setReservations(List<Reservation> reservations) {
 	this.reservations = reservations;
 }
-@OneToMany(mappedBy="user")
+@OneToMany(mappedBy="user", cascade = { CascadeType.ALL})
 public List<HealthInstitueReservation> getHealthInstitueReservation() {
 	return healthInstitueReservation;
 }

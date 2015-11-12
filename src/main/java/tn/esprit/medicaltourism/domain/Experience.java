@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -15,11 +16,27 @@ import javax.persistence.*;
 @Table(name="t_experience")
 
 public class Experience implements Serializable {
-
 	private Patient patient;
 	private Integer id;
 	private String date;
-	private String rating;
+	private String subject;
+	private String story;
+	private List<Image> pictures;
+	
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getStory() {
+		return story;
+	}
+	public void setStory(String story) {
+		this.story = story;
+	}
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public Experience() {
@@ -36,14 +53,7 @@ public class Experience implements Serializable {
 	}   
 	
 	
-	@Lob
-	public String getRating() {
-		return this.rating;
-	}
 
-	public void setRating(String rating) {
-		this.rating = rating;
-	}
 	
 	public String getDate() {
 		return date;
@@ -55,6 +65,23 @@ public class Experience implements Serializable {
 	@JoinColumn(name="patient_fk")
 	public Patient getPatient() {
 		return patient;
+	}
+	
+	@OneToMany(mappedBy = "experience", cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+	public List<Image> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<Image> pictures) {
+		this.pictures = pictures;
+	}
+	
+	
+	public Experience(String date, String subject, String story) {
+		super();
+		this.date = date;
+		this.subject = subject;
+		this.story = story;
 	}
 	public void setPatient(Patient patient) {
 		this.patient = patient;

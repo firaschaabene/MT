@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,10 +29,11 @@ private int id ;
 private String url ;
 private User user;
 private Hotel hotel ;
-private Services_Hotel service_hotel;
+private Service_Hotel service_hotel;
+private Service_HI service_hi;
 private HealthInstitute healthInstitute;
 private Activity activity ;
-
+private Experience experience;
 
     public Image() {
        
@@ -73,37 +76,53 @@ public User getUser() {
 public void setUser(User user) {
 	this.user = user;
 }
-@OneToOne
-@JoinColumn(name ="hotel_picture_FK")
+@ManyToOne
+@JoinColumn(name ="hotel_pictures_FK")
 public Hotel getHotel() {
 	return hotel;
 }
 public void setHotel(Hotel hotel) {
 	this.hotel = hotel;
 }
-@OneToOne
-@JoinColumn(name ="HI_picture_FK")
+@ManyToOne
+@JoinColumn(name ="HI_pictures_FK")
 public HealthInstitute getHealthInstitute() {
 	return healthInstitute;
 }
 public void setHealthInstitute(HealthInstitute healthInstitute) {
 	this.healthInstitute = healthInstitute;
 }
-@OneToOne
-@JoinColumn(name ="Activity_picture_FK")
+@ManyToOne
+@JoinColumn(name ="Activity_pictures_FK")
 public Activity getActivity() {
 	return activity;
 }
 public void setActivity(Activity activity) {
 	this.activity = activity;
 }
-@OneToOne
-@JoinColumn(name ="services_Hotel_picture_FK")
-public Services_Hotel getService_hotel() {
+@ManyToOne
+@JoinColumn(name ="service_Hotel_pictures_FK")
+public Service_Hotel getService_hotel() {
 	return service_hotel;
 }
-public void setService_hotel(Services_Hotel service_hotel) {
+public void setService_hotel(Service_Hotel service_hotel) {
 	this.service_hotel = service_hotel;
+}
+@ManyToOne
+@JoinColumn(name ="Experience_pictures_FK")
+public Experience getExperience() {
+	return experience;
+}
+public void setExperience(Experience experience) {
+	this.experience = experience;
+}
+@ManyToOne
+@JoinColumn(name ="Service_HI_pictures_FK")
+public Service_HI getService_hi() {
+	return service_hi;
+}
+public void setService_hi(Service_HI service_hi) {
+	this.service_hi = service_hi;
 }
 
 
