@@ -28,7 +28,7 @@ public class Hotel implements Serializable {
 	private Integer star;
 	private String address;
 	private String description;
-	private List<Reservation> reservations;
+
 	private List<Offer> offer;
 	private List<Activity> activities;
 	private List<Image> pictures;
@@ -79,14 +79,7 @@ public class Hotel implements Serializable {
 		this.address = address;
 	}
 
-	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL})
-	public List<Reservation> getReservations() {
-		return reservations;
-	}
 
-	public void setReservations(List<Reservation> reservations) {
-		this.reservations = reservations;
-	}
 
 	@OneToMany(mappedBy = "hotel", cascade = { CascadeType.ALL})
 	public List<Activity> getActivities() {

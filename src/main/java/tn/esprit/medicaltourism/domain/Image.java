@@ -34,7 +34,7 @@ private Service_HI service_hi;
 private HealthInstitute healthInstitute;
 private Activity activity ;
 private Experience experience;
-
+private Room room;
     public Image() {
        
     }
@@ -123,6 +123,14 @@ public Service_HI getService_hi() {
 }
 public void setService_hi(Service_HI service_hi) {
 	this.service_hi = service_hi;
+}
+@ManyToOne
+@JoinColumn(name ="Room_pictures_FK")
+public Room getRoom() {
+	return room;
+}
+public void setRoom(Room room) {
+	this.room = room;
 }
 
 

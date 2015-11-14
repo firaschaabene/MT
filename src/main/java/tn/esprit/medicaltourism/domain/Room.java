@@ -5,6 +5,8 @@ import java.lang.Boolean;
 import java.lang.Float;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -12,7 +14,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@Table(name="t_room")
 public class Room implements Serializable {
 
 	   
@@ -23,6 +25,10 @@ public class Room implements Serializable {
 	private Boolean vacant;
 	private Float pricePerNight;
 	private Hotel hotel ;
+	private String description ;
+	private List<Image> pictures;
+	private List<Reservation> reservations;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Room() {
@@ -88,6 +94,27 @@ public class Room implements Serializable {
 		this.pricePerNight = pricePerNight;
 		this.hotel = hotel;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	@OneToMany(mappedBy = "room", cascade = { CascadeType.ALL})
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
 	
-   
+	@OneToMany(mappedBy = "room", cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+	public List<Image> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<Image> pictures) {
+		this.pictures = pictures;
+	}
 }

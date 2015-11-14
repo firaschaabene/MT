@@ -18,10 +18,10 @@ public class Reservation implements Serializable {
 
 	
 	private String startDate;
-	private String endDdte;
+	private String endDate;
 	private ReservationPk ReservationPk;
 	private User patient;
-	private Hotel hotel;
+	private Room  room;
 	private Float totalPrice ;
 	private int numberOfPeople;
 	private static final long serialVersionUID = 1L;
@@ -36,12 +36,12 @@ public class Reservation implements Serializable {
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}   
-	public String getEndDdte() {
-		return this.endDdte;
+	public String getEndDate() {
+		return this.endDate;
 	}
 
-	public void setEndDdte(String endDdte) {
-		this.endDdte = endDdte;
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}   
 	@EmbeddedId
 	public ReservationPk getReservationPk() {
@@ -59,21 +59,15 @@ public class Reservation implements Serializable {
 	public void setPatient(User patient) {
 		this.patient = patient;
 	}
-	@ManyToOne
-	@JoinColumn(name="id_Hotel",referencedColumnName="id",insertable=false,updatable=false)
-	public Hotel getHotel() {
-		return hotel;
-	}
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
-	}
-	public Reservation(String startDate, String endDdte, User patient, Hotel hotel) {
+	
+
+	public Reservation(String startDate, String endDdte, User patient, Room room) {
 		super();
 		this.startDate = startDate;
-		this.endDdte = endDdte;
+		this.endDate = endDdte;
 		this.patient = patient;
-		this.hotel = hotel;
-		this.ReservationPk=new ReservationPk(patient.getId(),hotel.getId());
+		this.room = room;
+		this.ReservationPk=new ReservationPk(patient.getId(),room.getId());
 	}
 	public Float getTotalPrice() {
 		return totalPrice;
@@ -82,12 +76,12 @@ public class Reservation implements Serializable {
 		this.totalPrice = totalPrice;
 	}
 	public Reservation(String startDate, String endDdte, User patient,
-			Hotel hotel, Float totalPrice,int numberOfPeople) {
+			Room	room, Float totalPrice,int numberOfPeople) {
 		super();
 		this.startDate = startDate;
-		this.endDdte = endDdte;
+		this.endDate = endDdte;
 		this.patient = patient;
-		this.hotel = hotel;
+		this.room = room;
 		this.totalPrice = totalPrice;
 		this.numberOfPeople=numberOfPeople;
 	}
@@ -96,6 +90,14 @@ public class Reservation implements Serializable {
 	}
 	public void setNumberOfPeople(int numberOfPeople) {
 		this.numberOfPeople = numberOfPeople;
+	}
+	@ManyToOne
+	@JoinColumn(name="id_Room",referencedColumnName="id",insertable=false,updatable=false)
+	public Room getRoom() {
+		return room;
+	}
+	public void setRoom(Room room) {
+		this.room = room;
 	}
    
 	
